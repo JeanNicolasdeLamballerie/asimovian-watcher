@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "watcher",
+    "password": "z54d6z4f8e3lfvob1))5|~Oez44alweOoè55çàéWof",
+    "database": "watcher",
+    "host": "dbhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "sql7632594",
+    "password": "ZnNjC2u7qA",
+    "database": "sql7632594",
+    "host": "sql7.freemysqlhosting.net",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "string",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

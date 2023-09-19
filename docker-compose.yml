@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+  ########################################################
+  dbhost:
+    env_file:
+      - ./environments/db/.env
+    image: mysql
+    expose:
+      - '3306'
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  ########################################################
+  watcher:
+    depends_on:
+      dbhost:
+        condition: service_healthy
+    restart: always
+    build:
+      context: ./
+    ports:
+      - 5000:5000
+    env_file:
+      - ./environments/server/.env
+
+  ########################################################
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  # volumes:
+  #   db:
